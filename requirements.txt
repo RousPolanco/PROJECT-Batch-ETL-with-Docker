@@ -1,0 +1,6 @@
+pymongo
+requests
+pandas
+streamlit
+wordcloud
+plotly
