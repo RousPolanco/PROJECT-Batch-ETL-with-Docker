@@ -7,10 +7,10 @@ from ingestion_covid import ingest_covid_api
 from ingestion_pollution import ingest_pollution_api
 from ingestion_water import ingest_water_api
 
-# ✅ Importa correctamente la función de transformación
+# Importa correctamente la función de transformación
 from utils.transform_all_collections import transform_all_collections
 
-# ✅ Función que ejecuta la transformación completa
+# Función que ejecuta la transformación completa
 def transform_all(**context):
     print("Ejecutando transformaciones...")
     transform_all_collections()
@@ -28,7 +28,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-# ✅ Definición del DAG principal
+# Definición del DAG principal
 with DAG(
     'main_pipeline',
     default_args=default_args,
@@ -62,5 +62,5 @@ with DAG(
         python_callable=load_mongo,
     )
 
-    # ✅ Define el orden de ejecución correcto
+    # Define el orden de ejecución correcto
     ingest_covid_task >> ingest_water_task >> ingest_pollution_task >> transform_all_task >> load_mongo_task
