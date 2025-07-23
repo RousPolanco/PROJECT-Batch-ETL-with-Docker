@@ -66,12 +66,17 @@ Note: All services run in containers using **Docker Compose**.
 Now it is necessary you follow the next steps to make it works tha atl project.
 
 1. Clone the repository:
-
+   First
    ```bash
    git clone https://github.com/your-username/3-ETL-Airflow-Orchestration.git
    cd 3-ETL-Airflow-Orchestration
+   ```
+   Second
+   ```bash
+   docker-compose run --rm webserver airflow db init
+   ```
 
-2. Docker initialization: 
+3. Docker initialization: 
 Ensure you have Docker Desktop installed and running. If you are in MacOs/Linux you can use:
     ```bash
     docker-compose run --rm webserver airflow users create \
@@ -95,25 +100,25 @@ Ensure you have Docker Desktop installed and running. If you are in MacOs/Linux 
         --password airflow
     ```
 
-3. Build and start the services using git bash:
+4. Build and start the services using git bash:
     ```bash
     docker-compose up --build
     ```
     ![alt text](image-11.png)
     ![alt text](image-10.png)
 
-4. Access the interfaces:
+5. Access the interfaces:
 
     ```bash
     Airflow UI: http://localhost:8080
     ```
 
-5. Access streamlit app:
+6. Access streamlit app:
     ```bash
     Streamlit App: http://localhost:8501
     ```
 
-6. Mongo DB Compass connection:
+7. Mongo DB Compass connection:
     ```bash
     MongoDB: Port 27017 (backend service, no UI by default)
     ```
